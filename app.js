@@ -9,6 +9,8 @@ app.use(cors());
 // convert json string to json object (from request)
 app.use(express.json());
 
+app.use(express.static('frontend'))
+
 // mongo
 const mongoose = require("mongoose");
 

@@ -1,4 +1,4 @@
-const BASE_URL = "https://todos-app-api-ts84.onrender.com/todos/";
+const BASE_URL = "/todos/";
 
 // executes when the page is loaded
 function init() {
