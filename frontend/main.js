@@ -1,3 +1,5 @@
+const BASE_URL = "https://todos-app-api-ts84.onrender.com/todos/";
+
 // executes when the page is loaded
 function init() {
   let infoText = document.getElementById("infoText");
@@ -7,7 +9,7 @@ function init() {
 
 // fetch todos from server
 async function loadTodos() {
-  let response = await fetch("http://localhost:3000/todos");
+  let response = await fetch(BASE_URL);
   let todos = await response.json();
   console.log(todos);
   showTodos(todos);
@@ -85,7 +87,7 @@ async function addTodo() {
     return;
   }
   const data = { text: text };
-  const response = await fetch("http://localhost:3000/todos", {
+  const response = await fetch(BASE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +105,7 @@ async function addTodo() {
 }
 
 async function removeTodo(id) {
-  const response = await fetch(`http://localhost:3000/todos/${id}`, {
+  const response = await fetch(`${BASE_URL}${id}`, {
     method: "DELETE",
   });
   let responseJson = await response.json();
@@ -137,7 +139,7 @@ async function updateTodo(id) {
   let li = document.getElementById(id);
 
   const data = { text: text };
-  const response = await fetch(`http://localhost:3000/todos/${id}`, {
+  const response = await fetch(`${BASE_URL}${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
