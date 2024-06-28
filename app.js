@@ -3,13 +3,13 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
+app.use(express.static('frontend'))
+
 // cors - allow connection from different domains and ports
 app.use(cors());
 
 // convert json string to json object (from request)
 app.use(express.json());
-
-app.use(express.static('frontend'))
 
 // mongo
 const mongoose = require("mongoose");
